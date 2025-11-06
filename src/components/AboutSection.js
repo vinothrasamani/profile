@@ -3,11 +3,25 @@ import {
   Server,
   Code,
 } from 'lucide-react';
+import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
+import * as React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../App.css';
 
 function AboutSection() {
+  const [open, setOpen] = React.useState(false);
+  const apps = [
+    {
+      'name': 'Jessi Publication',
+      'link': ''
+    },
+    {
+      'name': 'Jessi eBook',
+      'link': ''
+    },
+  ];
+
   return (
     <section id="about" className="section-padding">
       <div className="container">
@@ -33,18 +47,38 @@ function AboutSection() {
               </p>
               <div className="row g-4 mt-4">
                 <div className="col-md-4">
-                  <div className="icon-box">
+                  <div className="icon-box" onClick={() => setOpen(true)}>
                     <Smartphone className="text-cyan mb-3" size={40} />
                     <h5 className="fw-semibold">2+ Apps Published</h5>
                     <p className="text-white-50 small mb-0">
                       Google Play Store
                     </p>
-                  </div>
+                  </div>                  
+                  <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md">
+                    <DialogTitle
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      📱Published Apps
+                      <IconButton onClick={() => setOpen(false)} style={{height:30, width:30, marginLeft:30,}}>
+                        &times;
+                      </IconButton>
+                    </DialogTitle>
+                    <hr/>
+                    <DialogContent>
+                      {apps.map((app)=>(
+                        <a href={app.link} target='_blank' className='app-link'><div className='pub-app'>👉{app.name}</div></a>
+                      ))}
+                    </DialogContent>
+                  </Dialog>
                 </div>
                 <div className="col-md-4">
                   <div className="icon-box">
                     <Server className="text-cyan mb-3" size={40} />
-                    <h5 className="fw-semibold">3 Websites Hosted</h5>
+                    <h5 className="fw-semibold">5+ Websites Hosted</h5>
                     <p className="text-white-50 small mb-0">On Bluehost</p>
                   </div>
                 </div>

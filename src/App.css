@@ -222,3 +222,56 @@ body {
 .bg-dark-section {
   background: rgba(15, 23, 42, 0.5);
 }
+
+.img{
+  margin-right: 6px;
+}
+.profile-img {
+  width: 90%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+  .profile-img {
+    width: 350px;
+  }
+}
+
+.pub-app{
+  padding: 8px;
+  border-radius: 6px;  
+  text-decoration: none;
+  background: rgba(22, 64, 249, 0.2);
+  border-color: rgba(22, 64, 249, 0.3);
+  border: 1px solid;
+  color:#1640f9;
+  margin-bottom: 5px;
+}
+.app-link{
+  text-decoration: none;
+}
+.see-more-bs {
+  width: 100%;
+  background: rgba(0, 75, 150, 0.504);
+  color: var(--bs-primary);
+  border: 2px solid rgba(0, 81, 108, 0.652);
+  padding: .45rem .9rem;
+  border-radius: 15px;
+  justify-content: center;
+  transition: background .15s, color .15s, transform .12s;
+}
+.see-more-bs:hover,
+.see-more-bs:focus {
+  background: rgba(124,58,237,0.09);
+  color: #5b21b6;
+  transform: translateY(-2px);
+}
+.arrow-icon {
+  transition: transform .18s;
+}
+.see-more-bs:hover .arrow-icon,
+.see-more-bs:focus .arrow-icon {
+  transform: translateX(5px);
+}

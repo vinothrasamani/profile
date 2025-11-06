@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../App.css';
 
-function ProjectsSection() {
+function ProjectsSection({ onClick , isOpen}) {
   const PROJECTS = [
     {
       title: 'Attendance Management System',
@@ -51,12 +51,12 @@ function ProjectsSection() {
 
   return (
     <section id="projects" className="section-padding bg-dark-section">
-      <div className="container">
-        <h2 className="text-center gradient-text fw-bold mb-5 display-4">
+      <div className="container">     
+        <h2 className="text-center gradient-text fw-bold mb-5 display-4 d-flex justify-content-center align-items-center gap-2">
           Featured Projects
         </h2>
         <div className="row g-4">
-          {PROJECTS.map((proj, i) => (
+          {PROJECTS.slice(0, isOpen ? PROJECTS.length : 4).map((proj, i) => (
             <div className="col-lg-6" key={proj.title}>
               <div className="card-custom p-4 h-100">
                 <h3 className="fs-4 fw-semibold mb-3 text-cyan">
@@ -91,11 +91,30 @@ function ProjectsSection() {
             </div>
           ))}
         </div>
-        <a href='#'>          
-          <p className="text-center gradient-text fw-bold mt-3">
-            See More..
-          </p>
-        </a>
+        <br/>
+        { !isOpen && (<button
+          className="btn see-more-bs d-inline-flex align-items-center"
+          onClick={() => onClick("projects") }
+          aria-label="See More"
+        >
+          <span>See More</span>
+          <svg
+            className="ms-2 arrow-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 12h14M13 5l6 7-6 7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>)}
       </div>
     </section>
   );
