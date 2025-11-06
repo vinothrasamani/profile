@@ -15,7 +15,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { DownloadIcon } from 'lucide-react';
 import CircularProgress from "@mui/material/CircularProgress";
 
-const RESUME_URL = "https://github.com/vinothrasamani/profile/blob/main/src/assets/resume.pdf";
+const RESUME_URL = "https://raw.githubusercontent.com/vinothrasamani/profile/main/src/assets/resume.pdf";
 const FILE_NAME = "Vinoth_Resume.pdf";
 
 function App() {
