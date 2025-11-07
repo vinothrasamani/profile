@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AppSection from './components/AppSection';
 import HeroSection from './components/Herosection';
 import AboutSection from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
@@ -25,9 +26,10 @@ function App() {
   const experienceRef = useRef();
   const projectsRef = useRef();
   const contactRef = useRef();
+  const appRef = useRef();
 
   const refs = React.useMemo(
-    () => [homeRef, aboutRef, skillsRef, experienceRef, projectsRef, contactRef],
+    () => [homeRef, aboutRef, skillsRef, experienceRef, projectsRef, contactRef, appRef],
     []
   );
 
@@ -131,6 +133,9 @@ function App() {
             </div>
             <div ref={refs[5]}>
               <ContactSection />
+            </div>
+            <div ref={refs[6]}>
+              <AppSection/>
             </div>
             <div style={{ position: "fixed", right: 20, bottom: 20, zIndex: 1400 }}>
               <Tooltip title="Download Resume" arrow>
